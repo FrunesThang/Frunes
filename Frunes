@@ -26,9 +26,9 @@ Data structure:
 
 "etching":{
 # If 0xC and 0xF appear:
-	"fraction proportions in edicts order":["F?":0x5F5E100(max numerator/1e8),"C?":0x0000002(e.g.),"F?":0x0000003,...,"F?":0x000000F],
-	"output checkpoint balance":0x0000FFFF(65535 divided by 2/1e8 to check inputs and calculate recursively)
-	//prescribe max 15 outputs, leave 1 output for OP_RETURN, maybe 73.5 bytes in total. The sum exceeds 1e8, parsing fails.
+	"fraction proportions in edicts order":["F?":0x989680(max numerator/1e7),"C?":0x000002(e.g.),"F?":0x000003,...,"F?":0x00000F],
+	"output checkpoint balance":0x0000FFFF(65535 divided by 2/1e7 to check inputs and calculate recursively)
+	//prescribe max 15 outputs, leave 1 output for OP_RETURN, maybe 66 bytes in total. The sum exceeds 1e7, parsing fails.
 	//If the total balance of inputs < 1, the output checkpoint can't be set. And If no 0xC, parsing fails.
 # If 0xA appear:
 	"mint references in edicts order":["A?-deploy-tx":683951374e57694b4470535a6ea89f498bdf93b896171542688ddf4c73f2c82e,
@@ -65,4 +65,4 @@ Data structure:
 //Fractional truncation, burning and destruction may occur, but the total token supply will ultimately inflate.
 //If a deep mixes or a fake source is found, the UTXO and the transfer-chains must be banned, error UTXOs may burden the wallet.
 //By coincidence,tick "Qlc7eV" in txid:516c63376556,d87c4779033327184ee00a08c4c14498e14673357ce4a791406b(1MB tx-size), 
-	Optimized to set the tx-size limit: 0x??90(max 0x4B90,19344 bytes, including witdata). 
+	Optimized to set the tx-size limit: 0x??90(max 0x4B90,19344 bytes, including witdata).
