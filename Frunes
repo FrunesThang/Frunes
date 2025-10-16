@@ -31,13 +31,13 @@ Data structure:
 	//prescribe max 15 outputs, leave 1 output for OP_RETURN, maybe 66 bytes in total. The sum exceeds 1e7, parsing fails.
 	//If the total balance of inputs < 1, the output checkpoint can't be set. And If no 0xC, parsing fails.
 # If 0xA appear:
-	"mint references in edicts order":["A?-deploy-tx":683951374e57694b4470535a6ea89f498bdf93b896171542688ddf4c73f2c82e,
-							"A?-deploy-tx":683951374e57694b4470535a6ea89f498bdf93b896171542688ddf4c73f2c82e]				
+	"mint references in edicts order":["A?-deploy-tx":6f3975336743586b76506b7268727235344423fd991a761afb63c70679a22fe4,
+							"A?-deploy-tx":6f3975336743586b76506b7268727235344423fd991a761afb63c70679a22fe4]				
 	//prescribe max 2 outputs, maybe 68 bytes in total.
 # If 0xD appear:
-	"tickname": "Hex ASCII sequence of consecutive letters(a-z,A-Z) and numbers(0-9) at the head of txid", //h9Q7NWiKDpSZn
-	"mint window interval blocks":0xA89F(e.g. max 0xFFFF, at the middle of txid),
-	"lim":0x37(e.g. max 0x2E, at the tail of txid),
+	"tickname": "Hex ASCII sequence of consecutive letters(a-z,A-Z) and numbers(0-9) at the head of txid", //o9u3gCXkvPkrhrr54D
+	"mint window interval blocks":0x23FD(e.g. max 0xFFFF, at the middle of txid),
+	"lim":0xE4(e.g. max 0xFF, at the tail of txid),
 	"is tail-inflation out of the window & new lim":0x01(1 fixed,yes)/0x00(no),     //can't be omitted
 	"is allowed to gamble":0x01(yes)/0x00(no)       //can't be omitted
 
@@ -65,4 +65,4 @@ Data structure:
 //Fractional truncation, burning and destruction may occur, but the total token supply will ultimately inflate.
 //If a deep mixes or a fake source is found, the UTXO and the transfer-chains must be banned, error UTXOs may burden the wallet.
 //By coincidence,tick "Qlc7eV" in txid:516c63376556,d87c4779033327184ee00a08c4c14498e14673357ce4a791406b(1MB tx-size), 
-	Optimized to set the tx-size limit: 0x??90(max 0x4B90,19344 bytes, including witdata).
+	Optimized to set the tx-size limit: 0x??90(max 0x4B90,19344 bytes, including witdata). 
