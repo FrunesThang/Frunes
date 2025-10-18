@@ -43,7 +43,7 @@ Data structure:
 
 	//The first three references are in the txid(tickname bytes + 3 bytes), deploy as a mint.
 	//prescribe max 15 outputs, leave 1 output for OP_RETURN, maybe 19 bytes in total.
-	//The longer the tickname, the more precious. Not recognized If the tickname length is less than 12,(max 29).
+	//The longer the tickname, the more precious. Not recognized If the tickname length is less than 4,(max 32).
 # If 0xE appear:
 	"trade checkpoint balance":0x0000FFFF (sell 65535 tokens. no need to use fraction proportions, the surplus balance is burned)
 	//like Brc-20, use SIGHASH_ANYONECANPAY | SIGHASH_SINGLE. E2 means output2 is the buyer's address.
