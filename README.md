@@ -27,7 +27,7 @@ Copyright (c) 2025, see the x1x@yopmail.fr
 
 	//First three references are in txid(tickname bytes + 3 bytes), deploying as a mint.
 	//Maximum 15 outputs prescribed, leaving 1 output for OP_RETURN (~19 bytes total).
-	//Longer ticknames provide higher precision. Ticknames with length < 4 are not recognized (max 32).
+	//Longer ticknames provide higher preciousness. Ticknames with length < 4 are not recognized (max 32).
 
 # If 0xE appear:
 	"trade checkpoint balance":0x0000FFFF (sell 65535 tokens. Fraction proportions not required, surplus balance burned)
