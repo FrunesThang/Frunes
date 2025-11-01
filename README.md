@@ -17,11 +17,11 @@ Copyright (c) 2025, see the x1x@yopmail.fr
     "A?-deploy-tx": 6f3975336743586b76506b7268727235344423fd991a761afb63c70679a22fe4,
     "A?-opcode": FRUNE_OP_DUP (44 55 50),"A?-opcode": FRUNE_OP_DUP (44 55 50),...]
 	//Subsequent references can be compact opcodes (FRUNE_OP_DUP) that point to the previous full txid.
-
+	
 # If 0xD appear:
 	"tickname": "Hex ASCII sequence of consecutive letters(a-z,A-Z) and numbers(0-9) from txid head", //o9u3gCXkvPkrhrr54D
-	"mint window interval blocks":0x23FD(example, max 0xFFFF, from txid middle),
-	"lim":0xE4(example, max 0xFF, from txid tail),
+	"mint window interval blocks":0x6f39(example, max 0x7A7A, from txid),
+	"lim":0x7533(example, max 0x7A7A, from txid),
 	"tail-inflation out of window & new lim":0x01(1 fixed,yes)/0x00(no),     //cannot be omitted
 	"gambling permission":0x01(yes)/0x00(no)       //cannot be omitted
 
