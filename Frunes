@@ -2,10 +2,11 @@ Frunes: Fractional Recursion and Context Check without Indexer
 
 Data structure:
 {
+
 "tx-size limit including witdata": {
-"PUSHDATA length": 0x4B(max, variable),
-"frunes-protocol-version": 0x90-0x9F(current version 0x90)
-//0x??90 also sets the tx-size limit, max 0x4B90(19,344 bytes). Parsing fails if exceeded.
+	"PUSHDATA length": 0x4B(max, variable),
+	"frunes-protocol-version": 0x90-0x9F(current version 0x90)
+	//0x??90 also sets the tx-size limit, max 0x4B90(19,344 bytes). Parsing fails if exceeded.
 },
 
 "edicts":[
@@ -48,7 +49,7 @@ Data structure:
 
 	//First three references are in txid(tickname bytes + 3 bytes), deploying as a mint.
 	//Maximum 15 outputs prescribed, leaving 1 output for OP_RETURN (~19 bytes total).
-	//Longer ticknames provide higher precision. Ticknames with length < 4 are not recognized (max 32).
+	//Longer ticknames provide higher preciousness. Ticknames with length < 4 are not recognized (max 32).
 
 # If 0xE appear:
 	"trade checkpoint balance":0x0000FFFF (sell 65535 tokens. Fraction proportions not required, surplus balance burned)
