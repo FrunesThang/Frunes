@@ -20,7 +20,7 @@ Data structure:
 		0x1(undefined Function)/0x2(?)/0x3(?).../0x8(?),
 		"output":0x0-0xF},
 	{"op":0xD(example),"output":5(example)},...
-	//Output indices cannot repeat; 0xC,0xE,0xB,0x0 appear only once; (0xC,0xF) must appear together.
+	//Output indices cannot repeat; 0xC,0xE,0xB,0x0 appear only once; (0xC,0xF) can appear together.
 	//(0xC,0xF),0xA,0xD,0xE,0xB are mutually exclusive with each other.
 ],
 
@@ -65,6 +65,7 @@ Data structure:
 
 "alignment hexes":{0xABC...}
 //Can be omitted
+
 }
 
 //Unprocessed input balances are burned. Surplus balance based on checkpoint is burned.
