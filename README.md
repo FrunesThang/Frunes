@@ -2,6 +2,17 @@ Frunes: Fractional Recursion and Context Check without Indexer
 
 Copyright (c) 2025, see the x1x@yopmail.fr
 
+Data structure:
+{
+
+"tx-size limit including witdata": {
+	"PUSHDATA length": 0x4B(max, variable),
+	"frunes-protocol-version": 0x90-0x9F(current version 0x90)
+	//0x??90 also sets the tx-size limit, max 0x4B90(19,344 bytes). Parsing fails if exceeded.
+},
+
+"edicts":[...],
+
 "etching":{
 # If 0xC appears or appears with 0xF:
 	"fraction proportions in edicts order":["F?":0x989680(max numerator/1e7),"C?":0x000002(example),"F?":0x000003,...,"F?":0x00000F],
@@ -32,11 +43,15 @@ Copyright (c) 2025, see the x1x@yopmail.fr
 # If 0xE appear:
 	"trade checkpoint balance":0x0000FFFF (sell 65535 tokens. Fraction proportions not required, surplus balance burned)
 	//Similar to Brc-20, using SIGHASH_ANYONECANPAY | SIGHASH_SINGLE. E2 indicates output2 is buyer's address.
-	//WARNING: Minimum tx-size including witdata may be limited to 0x0790(1,936 bytes) without alignment hexes.
+	//WARNING: Minimum tx-size including witdata may be limited to 0x0890(2192 bytes) with only 1 nonce byte.
 
 # If 0xB appear:
 	"gamble delay blocks":0x01(1 fixed),  //cannot be omitted
 	"current height+1 blockheader tail parity":0x01(odd)/0x00(even),  //cannot be omitted
 	"gamble checkpoint balance":0x7FFFFFFF (fraction proportions not required, double if true, burn if false)
 	//Surplus balance burned if exceeding 0x7FFFFFFF when true.
+},
+
+"nonce bytes":{0xABCD...}
+
 }
