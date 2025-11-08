@@ -71,8 +71,8 @@ Data structure:
 //If inputs contain different token sources after recursion, all balances are destroyed. 1 UTXO carries 1 kind of Token.
 //To prevent fabricated transfer processes, (C,F,A,B,E) ops' txid must start with the first 6 hex digits of their tickname.
 //Fractional truncation, burning, and destruction may occur, but total token supply will ultimately inflate.
-//If deep mixing or fake sources are detected, the UTXO and its fake transfer chains must be banned until their descendant 
-	outputs acknowledge 0 balance(outputs not using the Frunes protocol then become normal). Faulty UTXOs may burden wallets.
+//If deep mixing or fake sources are detected, the UTXO and its fake transfer chains must be banned until their descendant outputs
+	acknowledge 0 balance(outputs not using OP_RETURN or Non-Frunes or UNPROCESSED then become normal). Faulty UTXOs may burden wallets.
 //During the development of the Frunes protocol, we encountered the tick "Qlc7eV" in txid: 
 	516c63376556,d87c4779033327184ee00a08c4c14498e14673357ce4a791406b (with 1MB tx-size), 
 	thus optimizing the tx-size limit setting to 0x??90 (max 0x4B90, 19,344 bytes, including witdata).
