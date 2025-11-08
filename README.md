@@ -5,11 +5,7 @@ Copyright (c) 2025, see the x1x@yopmail.fr
 Data structure:
 {
 
-"tx-size limit including witdata": {
-	"PUSHDATA length": 0x4B(max, variable),
-	"frunes-protocol-version": 0x90-0x9F(current version 0x90)
-	//0x??90 also sets the tx-size limit, max 0x4B90(19,344 bytes). Parsing fails if exceeded.
-},
+"tx-size limit including witdata": {...},
 
 "edicts":[...],
 
