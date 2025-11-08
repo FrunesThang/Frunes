@@ -54,7 +54,7 @@ Data structure:
 # If 0xE appear:
 	"trade checkpoint balance":0x0000FFFF (sell 65535 tokens. Fraction proportions not required, surplus balance burned)
 	//Similar to Brc-20, using SIGHASH_ANYONECANPAY | SIGHASH_SINGLE. E2 indicates output2 is buyer's address.
-	//WARNING: Minimum tx-size including witdata may be limited to 0x0790(1,936 bytes) without alignment hexes.
+	//WARNING: Minimum tx-size including witdata may be limited to 0x0890(2192 bytes) with only 1 nonce byte.
 
 # If 0xB appear:
 	"gamble delay blocks":0x01(1 fixed),  //cannot be omitted
