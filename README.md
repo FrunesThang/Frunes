@@ -32,7 +32,7 @@ Data structure:
 	"tail-inflation out of window & new lim":0x01(1 fixed,yes)/0x00(no),     //cannot be omitted
 	"gambling permission":0x01(yes)/0x00(no)       //cannot be omitted
 
-	//First three references are in txid(tickname bytes + 3 bytes), deploying as a mint.
+	//First three references are in txid(tickname, interval and lim), deploying as a mint.
 	//Maximum 15 outputs prescribed, leaving 1 output for OP_RETURN (~19 bytes total).
 	//Longer ticknames provide higher preciousness. Ticknames with length < 4 are not recognized (max 32).
 
