@@ -1,7 +1,7 @@
 X-runestone:无余额索引器的代币协议doc:x1x@yopmail
 
 部署：
-OP_RETURN 0x5d(any byte) "deploy:Abc123,window:50000,lim:50,deci:1e-8,tail_emiss:1e-3,follow:this,mint:o0o1o2o3o10,gamblable:1,ret:o4"
+OP_RETURN 0x5d(any byte) "deploy:Abc123...,window:50000,lim:50,deci:1e-8,tail_emiss:1e-3,follow:this,mint:o0o1o2o3o10,gamblable:1,ret:o4"
 
 //deploy绑定txid来确保唯一性，deploy项可以省略，txid的开头必须是一段大小写字母和数字的ASCII序列,长度至少为14，代币名称越长被复制部署的可能性就越低。
 //deci是代币的最小单位，以上例子表示，过了窗口期，每个输出只能铸造1e-3个gamble代币。
