@@ -1,18 +1,19 @@
-X-runestone:无索引器的代币协议doc:x1x@yopmail
+X-runestone:无余额索引器的代币协议doc:x1x@yopmail
 
 部署：
 OP_RETURN 0x5d(any byte) "deploy:Abc123,window:50000,lim:50,deci:1e-8,tail_emiss:1e-3,follow:this,mint:o0o1o2o3o10,gamblable:1,ret:o4"
 
-//deploy绑定txid来确保唯一性，deploy项可以省略，txid的开头必须是一段大小写字母和数字的ascii序列,长度至少为14，代币名称越长被复制部署的可能性就越低。
+//deploy绑定txid来确保唯一性，deploy项可以省略，txid的开头必须是一段大小写字母和数字的ASCII序列,长度至少为14，代币名称越长被复制部署的可能性就越低。
 //deci是代币的最小单位，以上例子表示，过了窗口期，每个输出只能铸造1e-3个gamble代币。
-
 铸造：
 OP_RETURN 0x5d "follow:923084@0000,mint:o1o2o3o10,is_tail:0,ret:o4"
 交易：
-OP_RETURN 0x5d "send_o1:[{gambleX,1.001},{gambleT,1.001}],send_o10:[...],ret:o2"
-//当你汇总聚合时，需要声明所有已拥有的代币，没有任何索引器为你服务。
+OP_RETURN 0x5d "send_o1:[gambleX:1.001,gambleT:1.001],send_o10:[...],ret:o2"
+
+//当你汇总聚合时，需要声明所有已拥有的代币，没有余额索引器为你服务。
+//超出余额或虚假的余额会使代币燃烧，以及使整个交易链条都损失所铸造的代币。
 挂单：
-OP_RETURN 0x5d "anyonecanpay|single_o1:[{gambleX,1.001},{gambleT,1.001}],...,ret:o2"
+OP_RETURN 0x5d "anyonecanpay|single_o1:[gambleX:1.001,gambleT:1.001],...,ret:o2"
 GAMBLE：
-OP_RETURN 0x5d "gamble_send_o1:[{1usd,500},{usd1,500}],next_blockhash_tail:odd_double_burn,ret:o2"
-            or "gamble_send_o1:[{1usd,500},{usd1,500}],next_blockhash_tail:even_double_burn,ret:o2"
+OP_RETURN 0x5d "gamble_send_o1:[1usd:500,usd1:500],next_blockhash_tail:odd_double_burn,ret:o2"
+            or "gamble_send_o1:[1usd:500,usd1:500],next_blockhash_tail:even_double_burn,ret:o2"
