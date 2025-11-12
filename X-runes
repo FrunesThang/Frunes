@@ -22,11 +22,12 @@ OP_RETURN	OP_12
 			mint:[out5,out6,out7,out8], //0x5b 05 2c 06 2c 07 2c 08 5d
 			is_tail:false,              //0x01或0x00，是否在窗口期内铸造
 			op_rtn:out4					//0x04
+			
 转账：
 OP_RETURN	OP_12
 			sdo0(send out0):[Abc123...:1.001,xYz123...:1.001], 
 			//此处代币名称用文本显示，余额的第1个字节的前4位同时表示整数字节数和小数字节数，后4位表示精度1e-？
-			sdo9(send out9):[...],
+			sdo9(send out9):[...], //最多支持到达第9号位置，下述功能中的o？同样最多到达9号位置。
 			op_rtn:out4
 			
 //余额的表示方法：0x18 01 ff=1.00000255, 0x28 0001 ffff=1.00065535, 0x23 ffff ff2c是非法的，但是0x23 ffff 03e7=65535.999是合法的。
@@ -39,9 +40,10 @@ OP_RETURN	OP_12
 OP_RETURN	OP_12
 			mko0(market out0):[Abc123...:1.001,xYz123...:1.001], //利用anyonecanpay|single来让代币能够直接用btc进行买卖。
 			op_rtn:out4
-GAMBLE：
+
 //未列出的其他种类代币全都会被自动销毁，因为没有余额索引器为之服务。
 
+GAMBLE：
 OP_RETURN	OP_12
 			gmbl(gamble):odd,                                //规则是猜下一个区块哈希的尾数next_blockhash_tail:odd or even？
 			gbo1(gamble out1):[Abc123...:500,xYz123...:500], //double or burn？猜对了翻倍，猜错了代币就燃烧了。
@@ -51,7 +53,6 @@ OP_RETURN	OP_12
 
 
 使用示例（数据部分不能出现2c,3a:5b[5d]）：
-
 dpl:txid,wnd:
 文本区64706c3a747869642c776e643a数据区c350
 ,lim:
