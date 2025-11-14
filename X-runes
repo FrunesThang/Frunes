@@ -6,12 +6,12 @@ X-runestone:无余额索引器的代币协议，协议文档见:x1x@yopmail
 
 部署：
 OP_RETURN	OP_12                 		//协议魔数
-			dpl(deploy):txid,   		//代币名称固定在txid中显示，这一项可以省略
+			dpl(deploy):txid,   		//代币名称固定从txid的开头部分读取，此处冒号：后面解读为文本，且必须为“txid”，这一项可以省略
 			wnd(window):50000, 			//0xC350，铸造窗口期，2个字节，最大65535
 			lim:50,						//0x32，每次铸造的代币整数数量，1个字节，最大255
 			dec(decimal):1e-8,			//0xE8,代币最小精度，1个字节，最小1e-15，最大1e-0=1
 			tl_ems(tail emission):1e-4, //0xE4，过了窗口期的尾部通胀小数数量，1个字节，必须大于等于最小单位，最大1e-0=1
-			fllw(follow):self,          //部署交易跟随自身来铸造，部署时这一项可以省略
+			fllw(follow):self,          //此处冒号：后面解读为文本，部署交易跟随自身来铸造，部署时这一项可以省略
 			mint:[out1,out2,out3,out4], //0x5b 01 2c 02 2c 03 2c 04 5d，文本和数据交替组成标准化数组格式，最多能描述251个位置，部署时这一项可以省略
 			al_gmb(allow gamble):true,	//0x01或0x00，1个字节，该代币是否允许gamble
 			op_rtn(op_return):out5		//0x05，1个字节，只允许一个OP_RETURN输出，同时也是协议内容结束的标志
@@ -20,7 +20,7 @@ OP_RETURN	OP_12                 		//协议魔数
 
 铸造：
 OP_RETURN	OP_12
-			fllw:923084@0000,			//此处用文本显示
+			fllw:923084@0000,			//此处冒号：后面解读为文本
 			mint:[out5,out6,out7,out8], //0x5b 05 2c 06 2c 07 2c 08 5d
 			is_tail:false,              //0x01或0x00，是否在窗口期内铸造
 			op_rtn:out4					//0x04
@@ -48,7 +48,7 @@ OP_RETURN	OP_12
 
 GAMBLE：
 OP_RETURN	OP_12
-			gmb(gamble):odd,                                  //规则是猜下一个区块哈希的尾数next_blockhash_tail:odd or even？
+			gmb(gamble):odd,                  //此处冒号：后面解读为文本，规则是猜下一个区块哈希的尾数next_blockhash_tail:odd or even？
 			gmbo1(gamble out1):[Abc123...:500,xYz123...:500], //double or burn？猜对了翻倍，猜错了代币就燃烧了。
 			op_rtn:out4
 
